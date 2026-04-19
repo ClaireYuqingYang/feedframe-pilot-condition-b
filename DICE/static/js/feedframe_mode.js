@@ -39,6 +39,13 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     let pulseTimeout = null;
+    let pulseLoopTimeout = null;
+    const minPulseInterval = 45000;
+    const maxPulseInterval = 60000;
+
+    function randomPulseInterval() {
+        return Math.floor(Math.random() * (maxPulseInterval - minPulseInterval + 1)) + minPulseInterval;
+    }
 
     function triggerPulse() {
         // 先移除，确保动画可以重新开始
@@ -66,6 +73,17 @@ document.addEventListener("DOMContentLoaded", function () {
     // 暴露到 console，方便你手动测试
     window.triggerPulse = triggerPulse;
 
-    // 每 10 秒 pulse 一次；正式实验再改回 60000
-    setInterval(triggerPulse, 10000);
+    function scheduleNextPulse() {
+        if (pulseLoopTimeout) {
+            clearTimeout(pulseLoopTimeout);
+        }
+
+        pulseLoopTimeout = setTimeout(function () {
+            triggerPulse();
+            scheduleNextPulse();
+        }, randomPulseInterval());
+    }
+
+    // Randomize each breathing cue between 45 and 60 seconds.
+    scheduleNextPulse();
 });
