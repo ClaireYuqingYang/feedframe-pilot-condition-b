@@ -1,23 +1,23 @@
 document.addEventListener("DOMContentLoaded", function () {
     const generalBtn = document.getElementById("generalBtn");
-    const focusedBtn = document.getElementById("focusedBtn");
+    const socialBtn = document.getElementById("socialBtn");
     const banner = document.getElementById("ffBanner");
 
-    if (!generalBtn || !focusedBtn || !banner) return;
+    if (!generalBtn || !socialBtn || !banner) return;
 
     function setMode(mode) {
         document.body.classList.remove("ff-informed", "ff-entertained");
         generalBtn.classList.remove("active");
-        focusedBtn.classList.remove("active");
+        socialBtn.classList.remove("active");
 
         if (mode === "general") {
             document.body.classList.add("ff-informed");
             generalBtn.classList.add("active");
             banner.innerText = "Mode: General";
-        } else if (mode === "focused") {
+        } else if (mode === "social") {
             document.body.classList.add("ff-entertained");
-            focusedBtn.classList.add("active");
-            banner.innerText = "Mode: Focused";
+            socialBtn.classList.add("active");
+            banner.innerText = "Mode: Social";
         } else {
             banner.innerText = "Mode: Default";
             mode = "default";
@@ -34,8 +34,8 @@ document.addEventListener("DOMContentLoaded", function () {
         setMode("general");
     });
 
-    focusedBtn.addEventListener("click", function () {
-        setMode("focused");
+    socialBtn.addEventListener("click", function () {
+        setMode("social");
     });
 
     let pulseTimeout = null;
