@@ -40,8 +40,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let pulseTimeout = null;
     let pulseLoopTimeout = null;
-    const minPulseInterval = 45000;
-    const maxPulseInterval = 60000;
+    const minPulseInterval = 25000;
+    const maxPulseInterval = 35000;
 
     function randomPulseInterval() {
         return Math.floor(Math.random() * (maxPulseInterval - minPulseInterval + 1)) + minPulseInterval;
@@ -84,6 +84,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }, randomPulseInterval());
     }
 
-    // Randomize each breathing cue between 45 and 60 seconds.
+    // Randomize each breathing cue between 25 and 35 seconds.
     scheduleNextPulse();
 });
