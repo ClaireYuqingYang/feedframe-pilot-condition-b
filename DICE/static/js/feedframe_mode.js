@@ -13,11 +13,11 @@ document.addEventListener("DOMContentLoaded", function () {
         if (mode === "general") {
             document.body.classList.add("ff-informed");
             generalBtn.classList.add("active");
-            banner.innerText = "Mode: General";
+            banner.innerText = "Mode: Entertainment";
         } else if (mode === "social") {
             document.body.classList.add("ff-entertained");
             socialBtn.classList.add("active");
-            banner.innerText = "Mode: Social";
+            banner.innerText = "Mode: Socializing";
         } else {
             banner.innerText = "Mode: Default";
             mode = "default";
