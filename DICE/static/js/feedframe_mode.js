@@ -10,11 +10,11 @@ document.addEventListener("DOMContentLoaded", function () {
         generalBtn.classList.remove("active");
         socialBtn.classList.remove("active");
 
-        if (mode === "general") {
+        if (mode === "entertained") {
             document.body.classList.add("ff-informed");
             generalBtn.classList.add("active");
             banner.innerText = "Mode: Entertainment";
-        } else if (mode === "social") {
+        } else if (mode === "socialize") {
             document.body.classList.add("ff-entertained");
             socialBtn.classList.add("active");
             banner.innerText = "Mode: Socializing";
@@ -31,11 +31,11 @@ document.addEventListener("DOMContentLoaded", function () {
     setMode("default");
 
     generalBtn.addEventListener("click", function () {
-        setMode("general");
+        setMode("entertained");
     });
 
     socialBtn.addEventListener("click", function () {
-        setMode("social");
+        setMode("socialize");
     });
 
     let blinkTimeout = null;
