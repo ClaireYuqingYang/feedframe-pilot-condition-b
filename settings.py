@@ -2,7 +2,7 @@ from os import environ
 
 SESSION_CONFIGS = [
     dict(
-        name='control_with_color',
+        name='control_with_color_deprecated',
         app_sequence=['DICE'],
         num_demo_participants=3,
     )
@@ -11,7 +11,7 @@ SESSION_CONFIGS = [
 ROOMS = [
     dict(
         name='room_b',
-        display_name='Room B',
+        display_name='Deprecated - Do Not Use',
     )
 ]
 
@@ -26,9 +26,9 @@ SESSION_CONFIG_DEFAULTS = dict(
     title = '',
     full_name = '',
     eMail = '',
-    survey_link = 'https://nyu.qualtrics.com/jfe/form/SV_5p84KuwcDlmZPBY',
+    survey_link = '',
     url_param = 'PROLIFIC_PID',
-    condition_name = 'C2',
+    condition_name = 'DEPRECATED_C2',
     briefing = '', # '<h5>This could be your briefing</h5><p>Use HTML syntax to format your content to your liking.</p>',
     data_path='DICE/static/data/pilot1_stimuli.csv', # 'https://raw.githubusercontent.com/Howquez/oFeeds/main/software/DICE/DICE/static/data/sample_tweets.csv', #'DICE/DICE/data/sample_tweets.csv',
     sort_by='datetime',

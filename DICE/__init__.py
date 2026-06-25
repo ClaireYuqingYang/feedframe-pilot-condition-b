@@ -12,7 +12,7 @@ from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
 
 
 doc = """
-Mimic social media feeds with DICE.
+Deprecated DICE variant kept only to catch stale links safely.
 """
 
 
@@ -54,6 +54,16 @@ class Player(BasePlayer):
                                            blank=True)
     device_type = models.StringField(doc="indicates the participant's device type based on screen width.",
                                            blank=True)
+
+
+class A_Disabled(Page):
+    @staticmethod
+    def vars_for_template(player: Player):
+        return dict(
+            disable_title='Deprecated Condition',
+            disable_message='This condition has been retired and should no longer be used for the study.',
+            disable_instruction='Please return to the current study link or contact the research team if you reached this page unexpectedly.',
+        )
 
 
 
@@ -350,11 +360,7 @@ class D_Debrief(Page):
     def is_displayed(player):
         return len(player.session.config['survey_link']) == 0
 
-page_sequence = [A_Intro,
-                 B_Briefing,
-                 C_Feed,
-                 D_Redirect,
-                 D_Debrief]
+page_sequence = [A_Disabled]
 
 
 def custom_export(players):
